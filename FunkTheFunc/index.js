@@ -11,14 +11,14 @@ module.exports = function (context, myTimer) {
     
     async.parallel([
         function (cb) {
-            console.log('wow');
+            context.log('wow');
         },
         function (cb) {
-            console.log('zee');
+            context.log('zee');
         }
     ],
     function () {
-        console.info('over and out');
+        context.info('over and out');
         context.done();
     });
 };
