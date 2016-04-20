@@ -1,4 +1,4 @@
-var async = require('async');
+//var async = require('async');
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
@@ -9,17 +9,17 @@ module.exports = function (context, myTimer) {
     }
     context.log('Node.js timer trigger function ran!', timeStamp);   
     
-    async.parallel([
-        function (cb) {
-            context.log('wow');
-        },
-        function (cb) {
-            context.log('zee');
-        }
-    ],
-    function () {
-        context.log('over and out');
-    });
+    // async.parallel([
+    //     function (cb) {
+    //         context.log('wow');
+    //     },
+    //     function (cb) {
+    //         context.log('zee');
+    //     }
+    // ],
+    // function () {
+    //     context.log('over and out');
+    // });
 
     context.log('context done was called...');
     context.done();
