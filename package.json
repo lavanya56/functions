@@ -8,6 +8,6 @@
     "email": "morshe@microsoft.com"
   },
   "dependencies": {
-    "async": "^1.5.2",
+    "async": "^1.5.2"
   }
 }
