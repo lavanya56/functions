@@ -18,7 +18,6 @@ module.exports = function (context, myTimer) {
         }
     ],
     function () {
-        context.log('over and out');
         context.log('ended');
         context.done();
     });
