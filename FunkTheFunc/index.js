@@ -17,7 +17,7 @@ module.exports = function (context, myTimer) {
             context.log('zee');
         }
     ],
-    function () {
+    function (err, results) {
         context.log('ended');
         context.done();
     });
