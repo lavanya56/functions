@@ -12,9 +12,11 @@ module.exports = function (context, myTimer) {
     async.parallel([
         function (cb) {
             context.log('wow');
+            return cb();
         },
         function (cb) {
             context.log('zee');
+            return cb();
         }
     ],
     function (err, results) {
