@@ -1,4 +1,4 @@
-//var async = require('async');
+var async = require('async');
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
@@ -9,21 +9,18 @@ module.exports = function (context, myTimer) {
     }
     context.log('Node.js timer trigger function ran!', timeStamp);   
     
-    // async.parallel([
-    //     function (cb) {
-    //         console.log('wow');
-    //     },
-    //     function (cb) {
-    //         console.log('zee');
-    //     }
-    // ],
-    // function () {
-    //     console.info('over and out');
-    // })
-  
-    setTimeout(function () {
+    async.parallel([
+        function (cb) {
+            context.log('wow');
+        },
+        function (cb) {
+            context.log('zee');
+        }
+    ],
+    function () {
+        context.log('over and out');
         context.log('ended');
         context.done();
-    }, 1000);  
-    
+    });
+  
 };
