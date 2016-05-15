@@ -8,7 +8,7 @@
     },
     {
       "queueName": "samples-workitems",
-      "connection": "morshetriesstorage_STORAGE",
+      "connection": "AzureWebJobsStorage",
       "name": "processStuff2",
       "type": "queue",
       "direction": "out"
