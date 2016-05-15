@@ -21,7 +21,8 @@ module.exports = function (context, myTimer) {
     ],
     function (err, results) {
         context.log('ended 2');
-		context.binding.processStuff2 = { body: 'New GitHub comment: ' + timeStamp};
+		context.bindings.processStuff2 = { body: 'New GitHub comment: ' + timeStamp };
+
         context.done();
     });
   
