@@ -1,8 +1,10 @@
 var async = require('async');
 var appInsights = require("applicationinsights");
 
-appInsights.setup("jennn75xcjm11rhjdi068xa04tqs8ymxeffk3kgm").start();
-var client = appInsights.getClient("jennn75xcjm11rhjdi068xa04tqs8ymxeffk3kgm");
+//appInsights.setup("jennn75xcjm11rhjdi068xa04tqs8ymxeffk3kgm").start();
+//var client = appInsights.getClient("jennn75xcjm11rhjdi068xa04tqs8ymxeffk3kgm");
+appInsights.setup("54d915d2-c67d-4d23-8de1-7f50a99251a6").start();
+var client = appInsights.getClient("54d915d2-c67d-4d23-8de1-7f50a99251a6");
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
