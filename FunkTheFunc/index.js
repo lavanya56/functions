@@ -1,7 +1,16 @@
 var async = require('async');
+var appInsights = require("applicationinsights");
+
+appInsights.setup("jennn75xcjm11rhjdi068xa04tqs8ymxeffk3kgm").start();
+var client = appInsights.getClient();
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
+    
+    client.trackEvent("custom event", {customProperty: "custom property value"});
+    client.trackException(new Error("handled exceptions can be logged with this method"));
+    client.trackMetric("custom metric", 3);
+    client.trackTrace("trace message");
     
     if(myTimer.isPastDue)
     {
