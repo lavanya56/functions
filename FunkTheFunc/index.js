@@ -1,3 +1,4 @@
+var util = require('util');
 var async = require('async');
 var appInsights = require("applicationinsights");
 
@@ -6,24 +7,24 @@ var appInsights = require("applicationinsights");
 appInsights.setup("54d915d2-c67d-4d23-8de1-7f50a99251a6").setAutoCollectConsole(true).start();
 var client = appInsights.getClient("54d915d2-c67d-4d23-8de1-7f50a99251a6");
 
-// function formatArgs(args){
-//     return [util.format.apply(util.format, Array.prototype.slice.call(args))];
-// }
-// console.log = function(){
-//     logger.info.apply(logger, formatArgs(arguments));
-// };
-// console.info = function(){
-//     client.trackTrace.apply(client, formatArgs(arguments));
-// };
-// console.warn = function(){
-//     logger.warn.apply(logger, formatArgs(arguments));
-// };
-// console.error = function(){
-//     logger.error.apply(logger, formatArgs(arguments));
-// };
-// console.debug = function(){
-//     logger.debug.apply(logger, formatArgs(arguments));
-// };
+function formatArgs(args){
+    return [util.format.apply(util.format, Array.prototype.slice.call(args))];
+}
+console.log = function(){
+    client.trackTrace.apply(client, formatArgs(arguments), 1);
+};
+console.info = function(){
+    client.trackTrace.apply(client, formatArgs(arguments), 0);
+};
+console.warn = function(){
+    client.trackTrace.apply(client, formatArgs(arguments), 2);
+};
+console.error = function(){
+    client.trackTrace.apply(client, formatArgs(arguments), 4);
+};
+console.debug = function(){
+    client.trackTrace.apply(client, formatArgs(arguments), 3);
+};
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
