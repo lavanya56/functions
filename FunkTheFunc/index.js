@@ -11,10 +11,10 @@ function formatArgs(args){
     return [util.format.apply(util.format, Array.prototype.slice.call(args))];
 }
 console.log = function(){
-    client.trackTrace(formatArgs(arguments), 1);
+    client.trackTrace(formatArgs(arguments) + " >> ", 1);
 };
 console.info = function(){
-    client.trackTrace(formatArgs(arguments), 0);
+    client.trackTrace(formatArgs(arguments) + " >> ", 0);
 };
 console.warn = function(){
     client.trackTrace.apply(client, formatArgs(arguments), 2);
