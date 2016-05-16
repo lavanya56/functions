@@ -18,6 +18,9 @@ module.exports = function (context, myTimer) {
     {
         context.log('Node.js is running late!');
     }
+    console.trace('try 1');
+    console.log('try 2');
+    
     context.log('Node.js timer trigger function ran!', timeStamp);   
     
     async.parallel([
