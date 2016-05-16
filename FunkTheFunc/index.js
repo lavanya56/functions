@@ -11,10 +11,10 @@ function formatArgs(args){
     return [util.format.apply(util.format, Array.prototype.slice.call(args))];
 }
 console.log = function(){
-    client.trackTrace.apply(client, formatArgs(arguments), 1);
+    client.trackTrace(formatArgs(arguments), 1);
 };
 console.info = function(){
-    client.trackTrace.apply(client, formatArgs(arguments), 0);
+    client.trackTrace(formatArgs(arguments), 0);
 };
 console.warn = function(){
     client.trackTrace.apply(client, formatArgs(arguments), 2);
@@ -39,8 +39,8 @@ module.exports = function (context, myTimer) {
         context.log('Node.js is running late!');
     }
     
-    console.info('info stuff');
-    console.log('log stuff');
+    console.info('info stuff 1');
+    console.log('log stuff 2');
     
     context.log('Node.js timer trigger function ran!', timeStamp);   
     
