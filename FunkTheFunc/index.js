@@ -3,8 +3,27 @@ var appInsights = require("applicationinsights");
 
 //appInsights.setup("jennn75xcjm11rhjdi068xa04tqs8ymxeffk3kgm").start();
 //var client = appInsights.getClient("jennn75xcjm11rhjdi068xa04tqs8ymxeffk3kgm");
-appInsights.setup("54d915d2-c67d-4d23-8de1-7f50a99251a6").start();
+appInsights.setup("54d915d2-c67d-4d23-8de1-7f50a99251a6").setAutoCollectConsole(true).start();
 var client = appInsights.getClient("54d915d2-c67d-4d23-8de1-7f50a99251a6");
+
+// function formatArgs(args){
+//     return [util.format.apply(util.format, Array.prototype.slice.call(args))];
+// }
+// console.log = function(){
+//     logger.info.apply(logger, formatArgs(arguments));
+// };
+// console.info = function(){
+//     client.trackTrace.apply(client, formatArgs(arguments));
+// };
+// console.warn = function(){
+//     logger.warn.apply(logger, formatArgs(arguments));
+// };
+// console.error = function(){
+//     logger.error.apply(logger, formatArgs(arguments));
+// };
+// console.debug = function(){
+//     logger.debug.apply(logger, formatArgs(arguments));
+// };
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
@@ -18,8 +37,6 @@ module.exports = function (context, myTimer) {
     {
         context.log('Node.js is running late!');
     }
-    console.trace('try 1');
-    console.log('try 2');
     
     context.log('Node.js timer trigger function ran!', timeStamp);   
     
